@@ -1,5 +1,5 @@
 
-# remember
+# Remember: Open Source x rewind.ai x Semantic x AR/XR
 
 record everything you see and hear 
 
@@ -13,7 +13,7 @@ based on https://brilliant.xyz/ AR/XR Monocle
   - Speech to text
   - Optical character recognition
   - Multi prompt vision to text (multimodal LLM)
-  - Embeddings (text + audio + vision) to vector db (e.g. rewind.ai + OSS + semantic + AR/XR)
+  - Embeddings (text + audio + vision) to vector db 
 
 ![image](https://github.com/louis030195/remember/assets/25003283/e8cf69a8-a2b7-43c6-9928-df1723ce833f)
 

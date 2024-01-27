@@ -10,10 +10,10 @@ based on https://brilliant.xyz/ AR/XR Monocle
 ## features
 - Stream everything you experience as raw images and audio to the permanent web
 - Stream processed version as:
- - Speech to text
- - Optical character recognition
- - Multi prompt vision to text (multimodal LLM)
- - Embeddings (text + audio + vision) to vector db
+  - Speech to text
+  - Optical character recognition
+  - Multi prompt vision to text (multimodal LLM)
+  - Embeddings (text + audio + vision) to vector db
 
 ![image](https://github.com/louis030195/remember/assets/25003283/e8cf69a8-a2b7-43c6-9928-df1723ce833f)
 

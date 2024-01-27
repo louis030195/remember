@@ -157,6 +157,7 @@ class Controller: ObservableObject, LoggerDelegate, DFUServiceDelegate, DFUProgr
 
   private let _m4aWriter = M4AWriter()
   private let _voiceTranslator = WhisperTranslation(configuration: .backgroundData)
+  // private let _voiceTranslator = SpeechRecognition()
   private let _aiAssistant = AIAssistant(configuration: .backgroundData)
   private let _stableDiffusion = StableDiffusion(configuration: .backgroundData)
 
@@ -971,15 +972,15 @@ class Controller: ObservableObject, LoggerDelegate, DFUServiceDelegate, DFUProgr
       if command.starts(with: "ien:") {
         // Image end command indicates image data complete and prompt on the way
         print(
-          "[Controller] Received complete image buffer (\(_imageData.count) bytes). Awaiting audio next."
+          "[Controller] Received complete image buffer (\(_imageData.count) bytes)."
         )
         if !_imageData.isEmpty {
-            guard let picture = UIImage(data: _imageData) else {
-              printErrorToChat("Photo could not be decoded", as: .user)
-              return
-            }
+          guard let picture = UIImage(data: _imageData) else {
+            printErrorToChat("Photo could not be decoded", as: .user)
+            return
+          }
           printToChat("", picture: picture, as: .user)
-            /*
+          /*
           let base64Image = _imageData.base64EncodedString(options: .lineLength64Characters)
           _aiAssistant.sendImageToVision(
             imageURL: "data:image/jpeg;base64,\(base64Image)",
@@ -991,7 +992,7 @@ class Controller: ObservableObject, LoggerDelegate, DFUServiceDelegate, DFUProgr
                   self?.printErrorToChat(error!.description, as: .assistant)
                   return
               }
-              
+
 
           }
              */
@@ -1035,68 +1036,36 @@ class Controller: ObservableObject, LoggerDelegate, DFUServiceDelegate, DFUProgr
     print("[Controller] Voice received. Converting to M4A...")
 
     // When in translation mode, we don't perform user transcription
-    printTypingIndicatorToChat(as: mode == .assistant ? .user : .translator)
+    // printTypingIndicatorToChat(as: mode == .assistant ? .user : .translator)
 
     // Convert to M4A, then pass to speech transcription
-    // _m4aWriter.write(buffer: voiceSample) { [weak self] (fileData: Data?) in
-    //   guard let self = self,
-    //     let fileData = fileData
-    //   else {
-    //     self?.printErrorToChat("Unable to process audio!", as: .user)
-    //     return
-    //   }
-    //   processVoice(audioFile: fileData, mode: mode)
-    // }
+    _m4aWriter.write(buffer: voiceSample) { [weak self] (fileData: Data?) in
+      guard let self = self,
+        let fileData = fileData
+      else {
+        self?.printErrorToChat("Unable to process audio!", as: .user)
+        return
+      }
+      processVoice(audioFile: fileData, mode: mode)
+    }
   }
 
   // Step 2: Send voice query (send to LLM, image generation, or translation)
   private func processVoice(audioFile fileData: Data, mode: AIAssistant.Mode) {
-    if _imageData.isEmpty {
-      // No image data, query GPT or Whisper (translation only)
-      //   let responder = mode == .assistant ? Participant.assistant : Participant.translator
-      //   if mode == .assistant {
-      //     _aiAssistant.send(
-      //       mode: mode,
-      //       audio: fileData,
-      //       model: _settings.gptModel
-      //     ) { [weak self] (userPrompt: String, response: String, error: AIError?) in
-      //       if let error = error {
-      //         self?.printErrorToChat(error.description, as: responder)
-      //       } else {
-      //         if mode == .assistant {
-      //           self?.printToChat(userPrompt, as: .user)
-      //         }
-      //         self?.printToChat(response, as: responder)
-      //         print("[Controller] Received response from ChatGPT")
-      //       }
-      //     }
-      //   } else {
-      //     _voiceTranslator.translate(
-      //       fileData: fileData,
-      //       format: .m4a
-      //     ) { [weak self] (query: String, error: AIError?) in
-      //       guard let self = self else { return }
-      //       if let error = error {
-      //         printErrorToChat(error.description, as: .user)
-      //       } else {
-      //         // Display translation
-      //         printToChat(query, as: .translator)
-      //         print("[Controller] Translation received: \(query)")
-      //       }
-      //     }
-      //   }
-    } else {
-        /*
-      let base64Image = _imageData.base64EncodedString(options: .lineLength64Characters)
-      _aiAssistant.sendImageToVision(
-        imageURL: "data:image/jpeg;base64,\(base64Image)",
-        model: _settings.gptModel
-      ) { [weak self] (response: String, _: AIError?) in
-        print("[Controller] Vision received: \(response)")
+    print("[Controller] Translating")
+    _voiceTranslator.translate(
+      fileData: fileData,
+      format: WhisperTranslation.AudioFormat.m4a
+    ) { [weak self] (query: String, error: Error?) in
+      guard let self = self else { return }
+      
+      if let error = error {
+        printErrorToChat(error.localizedDescription, as: .user)
+      } else {
+        // Display translation
+        printToChat(query, as: .translator)
+        print("[Controller] Translation received: \(query)")
       }
-         */
-      // Have image data, perform image generation
-      // generateImage(audioFile: fileData)
     }
   }
 
@@ -1104,6 +1073,7 @@ class Controller: ObservableObject, LoggerDelegate, DFUServiceDelegate, DFUProgr
     // User message
     printToChat(query, as: .user)
 
+    /*
     // Send to ChatGPT
     let responder = mode == .assistant ? Participant.assistant : Participant.translator
     printTypingIndicatorToChat(as: responder)
@@ -1119,10 +1089,12 @@ class Controller: ObservableObject, LoggerDelegate, DFUServiceDelegate, DFUProgr
         print("[Controller] Received response from ChatGPT")
       }
     }
+       */
   }
 
   private func generateImage(audioFile fileData: Data) {
     // Monocle will not receive anything, tell it to go back to idle (ick = image ack)
+    /*
     send(text: "ick:", to: _monocleBluetooth, on: Self._dataRx)
 
     // Attempt to decode image
@@ -1155,6 +1127,7 @@ class Controller: ObservableObject, LoggerDelegate, DFUServiceDelegate, DFUProgr
         self?.printErrorToChat("No image received", as: .assistant)
       }
     }
+       */
   }
 
   // MARK: Result Output

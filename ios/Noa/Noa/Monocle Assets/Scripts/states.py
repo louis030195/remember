@@ -20,12 +20,6 @@ class State:
     class DetectHold:
         pass
 
-    class StartRecording:
-        pass
-
-    class SendAudio:
-        pass
-
     class WaitForResponse:
         pass
 
@@ -35,10 +29,10 @@ class State:
     class PrintResponse:
         pass
 
-    class CaptureImage:
+    class Capture:
         pass
 
-    class SendImage:
+    class Send:
         pass
 
     class Undefined:

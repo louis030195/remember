@@ -6,9 +6,7 @@ def capture_image(state, gfx, send_message):
     if state.on_entry():
         camera.capture()
         send_message(b"ist:")
-        gfx.clear_response()
-        gfx.set_prompt("Camera ON")
-    state.after(250, state.SendImage)
+    state.after(250, state.Send)
 
 def send_image(state, gfx, send_message):
     if state.on_entry():
@@ -19,7 +17,7 @@ def send_image(state, gfx, send_message):
     if chunk == None:
         send_message(b"ien:")
         # loop capture image every 2 secs
-        state.after(2000, state.CaptureImage)
+        state.after(2000, state.Capture)
     else:
         send_message(b"idt:" + chunk)
         state.current_state.bytes_sent += len(chunk)

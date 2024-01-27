@@ -10,6 +10,7 @@ import Foundation
 public enum AIError: Error {
     case urlAuthenticationFailed
     case responsePayloadParseError
+    case rateLimitExceeded
     case clientSideNetworkError(error: Error?)
     case apiError(message: String)
     case dataFormatError(message: String)
@@ -27,6 +28,8 @@ extension AIError: CustomStringConvertible {
             }
         case .responsePayloadParseError:
             return "Unable to parse response from server."
+        case .rateLimitExceeded:
+            return "Rate limit exceeded."
         case .apiError(let message):
             return message
         case .urlAuthenticationFailed:

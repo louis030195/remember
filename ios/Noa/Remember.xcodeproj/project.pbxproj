@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		352D27F82A7B01820019EFDB /* SpinningMonocle.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 352D27F72A7B01820019EFDB /* SpinningMonocle.mp4 */; };
+		A6243E622B5F1979005BD4FD /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6243E612B5F1979005BD4FD /* SpeechRecognition.swift */; };
 		CC00398B2A6A4F11009E3BAC /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC00398A2A6A4F11009E3BAC /* BluetoothManager.swift */; };
 		CC0039962A6C7E57009E3BAC /* NordicDFU in Frameworks */ = {isa = PBXBuildFile; productRef = CC0039952A6C7E57009E3BAC /* NordicDFU */; };
 		CC0039A12A6DA51A009E3BAC /* PopupDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0039A02A6DA51A009E3BAC /* PopupDeviceView.swift */; };
@@ -96,6 +97,7 @@
 
 /* Begin PBXFileReference section */
 		352D27F72A7B01820019EFDB /* SpinningMonocle.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpinningMonocle.mp4; sourceTree = "<group>"; };
+		A6243E612B5F1979005BD4FD /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
 		CC00398A2A6A4F11009E3BAC /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		CC0039A02A6DA51A009E3BAC /* PopupDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDeviceView.swift; sourceTree = "<group>"; };
 		CC0039A42A6DA57E009E3BAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		CC3FE0342A0F12C800756941 /* AI */ = {
 			isa = PBXGroup;
 			children = (
+				A6243E612B5F1979005BD4FD /* SpeechRecognition.swift */,
 				CC3FE0352A0F12F700756941 /* AIAssistant.swift */,
 				CCCECE6A2A1EB4B100DBB7CA /* WhisperTranslation.swift */,
 				CCCECE6C2A1EE7C700DBB7CA /* AIError.swift */,
@@ -615,6 +618,7 @@
 				CC27DC552A0304D600A942A9 /* TypingIndicatorView.swift in Sources */,
 				F8BC4DE52A4DBD680005F6F0 /* DeviceScreenView.swift in Sources */,
 				CC00398B2A6A4F11009E3BAC /* BluetoothManager.swift in Sources */,
+				A6243E622B5F1979005BD4FD /* SpeechRecognition.swift in Sources */,
 				CC4E3AEF2A00BBE90058AC20 /* Message.swift in Sources */,
 				CC212D6A2A9D6FDB0093479F /* CVPixelBuffer+Extensions.swift in Sources */,
 				CC4E3AF52A01A7A90058AC20 /* ChatMessageStore.swift in Sources */,

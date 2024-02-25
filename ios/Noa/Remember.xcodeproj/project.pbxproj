@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		352D27F82A7B01820019EFDB /* SpinningMonocle.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 352D27F72A7B01820019EFDB /* SpinningMonocle.mp4 */; };
 		A6243E622B5F1979005BD4FD /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6243E612B5F1979005BD4FD /* SpeechRecognition.swift */; };
+		A65080102B8507E0001EC620 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = A650800F2B8507E0001EC620 /* Supabase */; };
+		A67959B02B80ED9A000D14AE /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67959AF2B80ED9A000D14AE /* Supabase.swift */; };
+		A67959B32B80EE00000D14AE /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = A67959B22B80EE00000D14AE /* Auth */; };
+		A67959B52B80EE00000D14AE /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = A67959B42B80EE00000D14AE /* Functions */; };
+		A67959B72B80EE00000D14AE /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = A67959B62B80EE00000D14AE /* PostgREST */; };
+		A67959B92B80EE00000D14AE /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = A67959B82B80EE00000D14AE /* Realtime */; };
+		A67959BB2B80EE00000D14AE /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = A67959BA2B80EE00000D14AE /* Storage */; };
 		CC00398B2A6A4F11009E3BAC /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC00398A2A6A4F11009E3BAC /* BluetoothManager.swift */; };
 		CC0039962A6C7E57009E3BAC /* NordicDFU in Frameworks */ = {isa = PBXBuildFile; productRef = CC0039952A6C7E57009E3BAC /* NordicDFU */; };
 		CC0039A12A6DA51A009E3BAC /* PopupDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0039A02A6DA51A009E3BAC /* PopupDeviceView.swift */; };
@@ -98,6 +105,7 @@
 /* Begin PBXFileReference section */
 		352D27F72A7B01820019EFDB /* SpinningMonocle.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpinningMonocle.mp4; sourceTree = "<group>"; };
 		A6243E612B5F1979005BD4FD /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
+		A67959AF2B80ED9A000D14AE /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
 		CC00398A2A6A4F11009E3BAC /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		CC0039A02A6DA51A009E3BAC /* PopupDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDeviceView.swift; sourceTree = "<group>"; };
 		CC0039A42A6DA57E009E3BAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -175,6 +183,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A65080102B8507E0001EC620 /* Supabase in Frameworks */,
+				A67959BB2B80EE00000D14AE /* Storage in Frameworks */,
+				A67959B72B80EE00000D14AE /* PostgREST in Frameworks */,
+				A67959B52B80EE00000D14AE /* Functions in Frameworks */,
+				A67959B32B80EE00000D14AE /* Auth in Frameworks */,
+				A67959B92B80EE00000D14AE /* Realtime in Frameworks */,
 				CC0039962A6C7E57009E3BAC /* NordicDFU in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +220,13 @@
 				CCEE17512ACF8CC1000170F5 /* Tutorial_5.png */,
 			);
 			path = "UI Assets";
+			sourceTree = "<group>";
+		};
+		A650800E2B8507E0001EC620 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CC00398C2A6B7F4E009E3BAC /* Scripts */ = {
@@ -324,6 +345,7 @@
 				CC4E3AD32A00BA4D0058AC20 /* NoaTests */,
 				CC4E3ADD2A00BA4D0058AC20 /* NoaUITests */,
 				CC4E3AC12A00BA4C0058AC20 /* Products */,
+				A650800E2B8507E0001EC620 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -358,6 +380,7 @@
 				CC3FE0272A0EF80300756941 /* Test Assets */,
 				CCB2F9632A25812B00F24F2D /* Monocle Assets */,
 				CC4E3AC92A00BA4D0058AC20 /* Preview Content */,
+				A67959AF2B80ED9A000D14AE /* Supabase.swift */,
 			);
 			path = Noa;
 			sourceTree = "<group>";
@@ -468,6 +491,12 @@
 			name = Remember;
 			packageProductDependencies = (
 				CC0039952A6C7E57009E3BAC /* NordicDFU */,
+				A67959B22B80EE00000D14AE /* Auth */,
+				A67959B42B80EE00000D14AE /* Functions */,
+				A67959B62B80EE00000D14AE /* PostgREST */,
+				A67959B82B80EE00000D14AE /* Realtime */,
+				A67959BA2B80EE00000D14AE /* Storage */,
+				A650800F2B8507E0001EC620 /* Supabase */,
 			);
 			productName = "ChatGPT for Monocle";
 			productReference = CC4E3AC02A00BA4C0058AC20 /* Remember.app */;
@@ -543,6 +572,7 @@
 			mainGroup = CC4E3AB72A00BA4C0058AC20;
 			packageReferences = (
 				CC0039942A6C7E57009E3BAC /* XCRemoteSwiftPackageReference "IOS-DFU-Library" */,
+				A67959B12B80EE00000D14AE /* XCRemoteSwiftPackageReference "supabase-swift" */,
 			);
 			productRefGroup = CC4E3AC12A00BA4C0058AC20 /* Products */;
 			projectDirPath = "";
@@ -628,6 +658,7 @@
 				CCBC46262A02101A00871C12 /* Participant.swift in Sources */,
 				CCB2F9622A2568EE00F24F2D /* Controller.swift in Sources */,
 				CCCECE6D2A1EE7C700DBB7CA /* AIError.swift in Sources */,
+				A67959B02B80ED9A000D14AE /* Supabase.swift in Sources */,
 				CC4E3AF12A00BC8A0058AC20 /* MessageContentView.swift in Sources */,
 				CCB2F9682A25990F00F24F2D /* UtilNamespace.swift in Sources */,
 				CC6851662A995EA9004EA777 /* UIImage+Extensions.swift in Sources */,
@@ -1004,6 +1035,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A67959B12B80EE00000D14AE /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase-community/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
 		CC0039942A6C7E57009E3BAC /* XCRemoteSwiftPackageReference "IOS-DFU-Library" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NordicSemiconductor/IOS-DFU-Library";
@@ -1015,6 +1054,36 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A650800F2B8507E0001EC620 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67959B12B80EE00000D14AE /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		A67959B22B80EE00000D14AE /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67959B12B80EE00000D14AE /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		A67959B42B80EE00000D14AE /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67959B12B80EE00000D14AE /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		A67959B62B80EE00000D14AE /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67959B12B80EE00000D14AE /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		A67959B82B80EE00000D14AE /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67959B12B80EE00000D14AE /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		A67959BA2B80EE00000D14AE /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67959B12B80EE00000D14AE /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
 		CC0039952A6C7E57009E3BAC /* NordicDFU */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CC0039942A6C7E57009E3BAC /* XCRemoteSwiftPackageReference "IOS-DFU-Library" */;

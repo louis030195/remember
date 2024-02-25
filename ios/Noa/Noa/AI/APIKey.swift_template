@@ -8,3 +8,5 @@
 //  order to use the API
 
 let brilliantAPIKey = ""
+let supabaseUrl = ""
+let supabaseAnonApiKey = ""

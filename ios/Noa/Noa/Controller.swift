@@ -21,6 +21,7 @@ import CoreBluetooth
 import CryptoKit
 import Foundation
 import NordicDFU
+import Storage
 import UIKit
 
 class Controller: ObservableObject, LoggerDelegate, DFUServiceDelegate, DFUProgressDelegate {
@@ -1046,7 +1047,39 @@ class Controller: ObservableObject, LoggerDelegate, DFUServiceDelegate, DFUProgr
         self?.printErrorToChat("Unable to process audio!", as: .user)
         return
       }
-      processVoice(audioFile: fileData, mode: mode)
+      // processVoice(audioFile: fileData, mode: mode)
+      self.processVoice(audioFile: fileData, mode: mode)
+
+      Task {
+        // do {
+        //   let result = try await supabase.storage.createBucket(
+        //     "remember",
+        //     options: BucketOptions(
+        //       public: true,
+        //       fileSizeLimit: 1024,
+        //       allowedMimeTypes: ["image/png"]
+        //     )
+        //   )
+        // } catch {
+        //   // Handle the error here
+        //   print("Error creating bucket: \(error)")
+        // }
+        do {
+          // Generate a unique file name, e.g., using UUID
+          let fileName = "\(UUID().uuidString).m4a"
+          let result2 = try await supabase.storage.from("remember")
+            .upload(path: fileName, file: fileData)
+          print("File name: \(fileName) uploaded to remember: \(result2)")
+        } catch {
+          // Handle the error here
+          print("Error uploading file: \(error)")
+        }
+        DispatchQueue.main.async {
+          // Handle the result on the main thread if necessary
+          // For example, updating the UI based on the result
+        }
+      }
+
     }
   }
 
@@ -1058,7 +1091,7 @@ class Controller: ObservableObject, LoggerDelegate, DFUServiceDelegate, DFUProgr
       format: WhisperTranslation.AudioFormat.m4a
     ) { [weak self] (query: String, error: Error?) in
       guard let self = self else { return }
-      
+
       if let error = error {
         printErrorToChat(error.localizedDescription, as: .user)
       } else {

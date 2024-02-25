@@ -8,6 +8,10 @@ currently based on https://brilliant.xyz/ AR/XR Monocle
 - Simple consumer app streaming your senses (vision, audio, etc.) to the cloud using wearables and sensors
 - Make it easy to search through and process (e.g. when did i see bob, how many cats did i see in feb, what seems to be my purpose of life based on my actions, what was this neat pitch I gave this investor recently, etc.)
 
+## nongoals
+
+- Data-privacy-nazi-compliant: unlike rewind, everything goes to the cloud! :). On the other hand it's open source so you can double check we don't send nasty things you are doing to your mom
+
 ## how to:
 1. git clone
 2. open with xcode

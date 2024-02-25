@@ -1,5 +1,33 @@
 
-# Remember: Open Source x rewind.ai x Semantic x AR/XR
+# Remember: Open Source rewind.ai
+
+currently based on https://brilliant.xyz/ AR/XR Monocle
+
+## goals
+
+- Stream your senses (vision, audio, etc.) to the cloud using wearables
+- Make it easy to search through and process (e.g. when did i see bob, how many cats did i see in feb, what seems to be my purpose of life based on my actions, etc.)
+
+## how to:
+1. git clone
+2. open with xcode
+3. setup your supabase project, create a bucket "remember" public, full row policy access, put url and supabase key in ios/Noa/Noa/APIKey.swift
+4. run on your iphone
+5. wear monocle and go for a walking conversation with your friend, and never lose this memory
+
+
+
+## bunch of mess below
+
+![image](https://github.com/louis030195/remember/assets/25003283/786c7560-9ca3-4773-af2e-5cb0685f1184)
+
+
+
+
+
+
+
+
 
 record everything you see and hear 
 

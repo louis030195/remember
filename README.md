@@ -5,7 +5,7 @@ currently based on https://brilliant.xyz/ AR/XR Monocle
 
 ## goals
 
-- Stream your senses (vision, audio, etc.) to the cloud using wearables
+- Simple consumer app streaming your senses (vision, audio, etc.) to the cloud using wearables and sensors
 - Make it easy to search through and process (e.g. when did i see bob, how many cats did i see in feb, what seems to be my purpose of life based on my actions, etc.)
 
 ## how to:
